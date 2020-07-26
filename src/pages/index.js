@@ -4,9 +4,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Post from "../components/Post"
 
-
 const IndexPage = () => (
-  <Layout pageTitle = "ExBlog">
+  <Layout pageTitle="ExBlog">
     <SEO title="Home" />
     <StaticQuery
       query={indexQuery}
@@ -34,7 +33,10 @@ const IndexPage = () => (
 
 const indexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 2
+    ) {
       edges {
         node {
           id
